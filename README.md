@@ -115,18 +115,15 @@ Before:
 ![alt text][image7]
 
 After:
-
 ![alt text][image8]
 
 
 Also, the images from the training and test set are cropped to remove the sky, trees and hood. 
 
 Before:
-
 ![alt text][image10]
 
 After:
-
 ![alt text][image9]
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 8. I used an adam optimizer.
