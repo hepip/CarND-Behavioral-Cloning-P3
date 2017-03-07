@@ -66,9 +66,4 @@ def generate_next_batch(batch_size=64):
             y_batch.append(new_angle)
         yield np.array(X_batch), np.array(y_batch)
 
-def save_model(model, model_name='model.json', weights_name='model.h5'):
-    json_string = model.to_json()
-    with open(model_name, 'w') as outfile:
-        json.dump(json_string, outfile)
-
-    model.save_weights(weights_name)
+    

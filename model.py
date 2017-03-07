@@ -63,4 +63,4 @@ ax.set_xlabel('epoch')
 ax.legend(['train', 'test'], loc='upper left')
 fig.savefig('modelAccuracy.png')
 
-helper.save_model(model)
+model.save('model.h5')
