@@ -15,13 +15,15 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./imgs/Image1_NVidiaArchitecture.PNG "NVIDIA Architecture"
+[image2]: ./imgs/Image2_modelSummary1.PNG "Model Summary"
+[image3]: ./imgs/Image3_modelSummary2.PNG "Model Summary"
+[image4]: ./imgs/image4_center.jpg "Center Camera Image"
+[image5]: ./imgs/image5_left.jpg "Left Camera Image"
+[image6]: ./imgs/image6_right.jpg "Right Camera Image"
+[image7]: ./imgs/notflipped.png "Not Flipped Image"
+[image7]: ./imgs/flipped.png "Image"
+
 
 ### Rubric Points
 #### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -75,7 +77,9 @@ For details about how I created the training data, see the next section.
 
 #### 1. Solution Design Approach
 
-The overall model architecture is based on NVIDIA's End to End Learning for Self-Driving Cars paper.
+The overall model architecture is based on [NVIDIA's End to End Learning for Self-Driving Cars paper](https://arxiv.org/pdf/1604.07316.pdf).
+
+![alt text][image1]
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. To combat the overfitting, I ran the model for lower number of epochs.
 
@@ -87,28 +91,30 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py lines 15-42) consisted of a convolution neural network with the following layers and layer sizes.
 
-![alt text][image1]
-
+![alt text][image2]
+![alt text][image3]
 
 #### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
-![alt text][image2]
+![alt text][image4]
 
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to adapt to such situation while driving autonomously. These images show what a recovery looks like starting from :
 
-![alt text][image3]
-![alt text][image4]
 ![alt text][image5]
+![alt text][image6]
+
 
 Then I repeated this process on track two in order to get more data points.
 
 To augment the data sat, I also flipped images and angles thinking that this would add some extra data. For example, here is an image that has then been flipped:
 
-![alt text][image6]
+Before:
 ![alt text][image7]
 
+After:
+![alt text][image8]
 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 8. I used an adam optimizer.
+Also, the images from the training and test set are cropped to remove the sky, trees and hood. I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 8. I used an adam optimizer.
