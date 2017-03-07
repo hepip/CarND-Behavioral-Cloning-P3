@@ -125,8 +125,8 @@ Before:
 
 After:
 ![alt text][image9]
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 8. I used an adam optimizer.
+ 
+I used fit_generator API from Keras to train this CNN. 
 
 Please check run1.mp4 for the recorded video.
 
